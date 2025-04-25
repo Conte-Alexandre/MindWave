@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historique des Humeurs</title>
+    <link href="./css/output.css" rel="stylesheet" />
+    <style>
+      /* Menu burger caché par défaut */
+      @media (max-width: 768px) {
+        nav ul {
+          display: none; /* Masquer le menu sur mobile */
+          flex-direction: column;
+          align-items: center;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background-color: white;
+          width: 100%;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 0; /* Pas de padding autour */
+        }
+
+        nav ul li a {
+          display: block;
+          width: 100%; /* Prend toute la largeur */
+          padding: 20px 0; /* Plus d'espace autour des liens */
+          text-align: center;
+          font-size: 15px; /* Taille du texte pour mobile */
+          color: #333;
+          border-top: 1px solid #ddd;
+          transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+          background-color: #f0f0f0;
+        }
+
+        nav ul.active {
+          display: flex; /* Afficher le menu burger quand il est actif */
+        }
+
+        #menuToggle {
+          cursor: pointer;
+        }
+
+        #menuToggle div {
+          width: 30px;
+          height: 3px;
+          background-color: black;
+          margin: 6px 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <nav class="relative flex justify-between items-center p-4 bg-white shadow-md sticky top-0 z-10">
+      <div class="text-lg font-bold text-gray-800">MindWave</div>
+
+      <div id="menuToggle" class="md:hidden">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <ul id="menu" class="hidden md:flex md:space-x-4">
+        <li><a href="./index.html" class="text-gray-700 hover:text-blue-500">Accueil</a></li>
+        <li><a href="./historique.html" class="text-gray-700 hover:text-blue-500">Historique</a></li>
+      </ul>
+    </nav>
+
+    <h1 class="text-center text-3xl font-bold mt-8 mb-4 text-gray-800">Historique des Humeurs</h1>
+
+    <ul id="userList" class="max-w-3xl mx-auto p-4 space-y-4">
+    </ul>
+
+    <script src="scriptMenu.js"></script>
+    <script src="scriptHistorique.js"></script>
+  </body>
+</html>

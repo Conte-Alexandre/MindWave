@@ -1,0 +1,149 @@
+<!-- 
+ -->
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajouter une Humeur</title>
+    <link href="./css/output.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <style>
+      /* Style par défaut pour les écrans plus grands (tablettes et plus) */
+      nav ul {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      nav ul li {
+        font-size: 15px; /* Taille des liens */
+      }
+
+      /* Menu burger caché par défaut */
+      @media (max-width: 768px) {
+        nav ul {
+          display: none; /* Masquer le menu sur mobile */
+          flex-direction: column;
+          align-items: center;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background-color: white;
+          width: 100%;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 0; /* Pas de padding autour */
+        }
+
+        /* Lien qui prend toute la largeur */
+        nav ul li a {
+          display: block;
+          width: 100%; /* Prend toute la largeur */
+          padding: 20px 0; /* Plus d'espace autour des liens */
+          text-align: center;
+          font-size: 15px; /* Taille du texte pour mobile */
+          color: #333;
+          border-top: 1px solid #ddd;
+          transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+          background-color: #f0f0f0;
+        }
+
+        nav ul.active {
+          display: flex; /* Afficher le menu burger quand il est actif */
+        }
+
+        #menuToggle {
+          cursor: pointer;
+        }
+
+        #menuToggle div {
+          width: 30px;
+          height: 3px;
+          background-color: black;
+          margin: 6px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav
+      class="flex justify-between items-center p-4 bg-white shadow-md sticky"
+    >
+      <!-- Logo -->
+      <div class="text-lg font-bold">MindWave</div>
+
+      <!-- Icone du menu burger (pour les petits écrans) -->
+      <div id="menuToggle" class="md:hidden">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <!-- Menu classique pour les écrans plus grands -->
+      <ul id="menu" class="hidden md:flex md:space-x-4">
+        <li>
+          <a href="./index.html" class="text-gray-700 hover:text-blue-500"
+            >Accueil</a
+          >
+        </li>
+        <li>
+          <a href="./historique.html" class="text-gray-700 hover:text-blue-500"
+            >Historique</a
+          >
+        </li>
+      </ul>
+    </nav>
+    
+
+    <br />
+    <div class="flex justify-center items-center min-h-screen">
+    <div class="w-full sm:w-1/2 md:w-1/3 px-4">
+      <h1 class="text-center text-2xl mb-4">Se Connecter</h1>
+      <form
+        id="ConnexionForm"
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
+        <div class="mb-4">
+          <label for="nome" class="block text-sm font-medium text-center"
+            >Nom :</label
+          >
+          <input type="text" id="nom" class="block w-full text-center p-2 border border-gray-300 rounded-md">
+        </div>
+
+        <div class="mb-4">
+          <label for="nome" class="block text-sm font-medium text-center"
+            >Mot de passe :</label
+          >
+          <input type="text" id="mdp" class="block w-full text-center p-2 border border-gray-300 rounded-md">
+          
+        </div>
+
+       
+
+        <div>
+          <button
+            type="submit"
+            class="w-full py-2 mt-4 bg-blue-100 rounded-full text-blue500 hover:bg-blue-500 border-solid border-2 border-blue-500"
+          >
+            Se connecter
+          </button>
+          <div class="mt-4 text-center">
+            <p class="text-sm text-gray-600">
+              Pas encore de compte ? 
+              <a href="/formInscription.html" class="text-blue-500 font-bold hover:text-blue-600">M'inscrire</a>
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+    <script src="scriptConnexion.js"></script>
+    <script src="scriptMenu.js"></script>
+  </body>
+</html>

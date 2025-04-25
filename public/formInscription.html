@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S'inscrire</title>
+    <link href="./css/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="flex justify-between items-center p-4 bg-white shadow-md sticky">
+      <div class="text-lg font-bold">nomSite</div>
+
+      <div id="menuToggle" class="md:hidden">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <ul id="menu" class="hidden md:flex md:space-x-4">
+        <li>
+          <a href="./index.html" class="text-gray-700 hover:text-blue-500">Accueil</a>
+        </li>
+        <li>
+          <a href="./historique.html" class="text-gray-700 hover:text-blue-500">Historique</a>
+        </li>
+      </ul>
+    </nav>
+    
+    <br />
+    <div class="flex justify-center items-center min-h-screen">
+    <div class="w-full sm:w-1/2 md:w-1/3 px-4">
+      <h1 class="text-center text-2xl mb-4">S'inscrire</h1>
+      <form id="InscriptionForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+          <label for="nom" class="block text-sm font-medium text-center">Nom :</label>
+          <input type="text" id="nom" class="block w-full text-center p-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium text-center">E-mail :</label>
+          <input type="email" id="email" class="block w-full text-center p-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="mb-4">
+          <label for="mdp" class="block text-sm font-medium text-center">Mot de passe :</label>
+          <input type="password" id="mdp" class="block w-full text-center p-2 border border-gray-300 rounded-md">
+        </div>
+        <div>
+          <button type="submit" class="w-full py-2 mt-4 bg-blue-100 rounded-full text-blue500 hover:bg-blue-500 border-solid border-2 border-blue-500">
+            S'inscrire
+          </button>
+        </div>
+        <div class="mt-4 text-center">
+          <p class="text-sm text-gray-600">
+            Déjà un compte ? 
+            <a href="/formConnexion.html" class="text-blue-500 font-bold hover:text-blue-600">Me connecter</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+    <script src="scriptInscription.js"></script>
+    <script src="scriptMenu.js"></script>
+  </body>
+</html>
