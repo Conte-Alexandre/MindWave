@@ -6,7 +6,7 @@ async function fetchUsers() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // si nécessaire
+        Authorization: `Bearer ${token}`, 
       },
     });
 
@@ -61,10 +61,8 @@ async function deleteHumeur(id, button) {
 }
 
 if (!token) {
-// Pas de token → redirection vers la page de connexion
 window.location.href = '/formConnexion.html';
 } else {
-// Optionnel : tu peux faire un fetch pour valider le token
 fetch('/humeurs/mes-humeurs', {
 headers: {
 'Authorization': 'Bearer ' + token

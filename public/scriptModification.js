@@ -1,14 +1,12 @@
 document
   .getElementById("humeurModifForm")
   .addEventListener("submit", async function (e) {
-    e.preventDefault(); // Empêche le rechargement de la page
+    e.preventDefault(); 
 
-    // Récupérer les valeurs des champs
     const humeur = document.getElementById("humeur").value;
     const date = document.getElementById("date").value;
     const commentaire = document.getElementById("commentaire").value;
 
-    // Création de l'objet à envoyer
     const data = { humeur, date, commentaire };
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");

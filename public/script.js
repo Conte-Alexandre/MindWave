@@ -1,7 +1,5 @@
-// Récupérer le token du localStorage
 const token = localStorage.getItem("token");
 
-// Soumission du formulaire d'ajout d'humeur
 document
   .getElementById("humeurForm")
   .addEventListener("submit", async function (e) {
@@ -32,12 +30,10 @@ document
     }
   });
 
-// ---------------------------
-// Variables globales pour mois/année
-let moisActuel = new Date().getMonth(); // 0 = Janvier
+
+let moisActuel = new Date().getMonth(); 
 let anneeActuelle = new Date().getFullYear();
 
-// Récupérer les humeurs (GET avec token)
 async function fetchHumeurs() {
   try {
     const response = await fetch("https://mindwave.alwaysdata.net/humeurs", {
@@ -57,7 +53,6 @@ async function fetchHumeurs() {
   }
 }
 
-// Organiser les humeurs par date
 async function getHumeursParJour() {
   const humeurs = await fetchHumeurs();
   const humeursParJour = {};
@@ -69,7 +64,6 @@ async function getHumeursParJour() {
   return humeursParJour;
 }
 
-// Statistiques avec Chart.js
 async function getStat() {
   const humeurs = await fetchHumeurs();
   if (!humeurs) return;
@@ -103,7 +97,6 @@ async function getStat() {
   });
 }
 
-// Générer le calendrier pour un mois/année donné
 async function genererCalendrier(mois = moisActuel, annee = anneeActuelle) {
   const humeursParJour = await getHumeursParJour();
   const divContenaire = document.getElementById("calendrier_contenaire");
@@ -112,7 +105,6 @@ async function genererCalendrier(mois = moisActuel, annee = anneeActuelle) {
   const lastDay = new Date(annee, mois + 1, 0).getDate();
   const firstDay = new Date(annee, mois, 1).getDay();
 
-  // Titre mois
   const nomDuMois = new Date(annee, mois).toLocaleString("fr-FR", {
     month: "long",
     year: "numeric",
@@ -158,7 +150,6 @@ async function genererCalendrier(mois = moisActuel, annee = anneeActuelle) {
   }
 }
 
-// Boutons de navigation mois +/-
 function modifierMois() {
   document.getElementById("more").addEventListener("click", () => {
     moisActuel++;
@@ -180,10 +171,8 @@ function modifierMois() {
 }
 
 if (!token) {
-  // Pas de token → redirection vers la page de connexion
   window.location.href = '/formConnexion.html';
 } else {
-  // Optionnel : tu peux faire un fetch pour valider le token
   fetch('/humeurs/mes-humeurs', {
     headers: {
       'Authorization': 'Bearer ' + token
@@ -194,7 +183,6 @@ if (!token) {
     }
   });
 }
-// Initialisation au chargement
 window.onload = function () {
   genererCalendrier();
   getStat();
